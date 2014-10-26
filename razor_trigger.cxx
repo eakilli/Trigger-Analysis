@@ -214,13 +214,15 @@ void razor_trigger(){
 			JETs_n_o_e_plus2++;
 
 			// 2 Jets with pt > 30 GeV condition applied, continue to razor variables and L1 JET
-      raz_var_h->Fill(shatR/1000,gaminvR/1000);
-//    n_razor++;
-      XE_pt_h->Fill(XE_pt/1000);
+                        raz_var_h->Fill(shatR/1000,gaminvR/1000);
+//                      n_razor++;
+                        XE_pt_h->Fill(XE_pt/1000);
 
 			for(int l=0; l<JET_n; l++){
 				JET_pt_h->Fill(JET_pt[l]/1000); // Look at the pt distribution of L1 JET
+
 			}
+
 
 
 			if(value<prodr) {
@@ -230,6 +232,7 @@ void razor_trigger(){
 				if(b_XE70==1) n_t4_noprodr++;
 				if(b_2J10_XE60==1) n_t5_noprodr++;
 				if(b_2J15_XE55==1) n_t6_noprodr++;
+
 			}
 
 
@@ -250,10 +253,10 @@ void razor_trigger(){
 					n_o_e_prodr200_HT200++;
 				}
 				//t4
-        if(b_XE70==1){
-          flag_prodr200_t[3]=1;
-          n_o_e_prodr200_XE70++;
-        }
+        	                if(b_XE70==1){
+                	                flag_prodr200_t[3]=1;
+                        	        n_o_e_prodr200_XE70++;
+                       		 }
 				//t5
 				if(b_2J10_XE60==1){
 					flag_prodr200_t[4]=1;
@@ -299,7 +302,8 @@ void razor_trigger(){
 		} // end the else
 
 
-		// Use the vectors of flags 
+		// Use vectors of flags for trigger overlap
+
 
 		for (int x = 0; x<n_t ; x++) {
 
@@ -360,11 +364,11 @@ void razor_trigger(){
 
 
 	Float_t per_n_t1_noprodr = 100* (Float_t) n_t1_noprodr / (Float_t) JETs_n_o_e_plus2 ;
-  Float_t per_n_t2_noprodr = 100* (Float_t) n_t2_noprodr / (Float_t) JETs_n_o_e_plus2 ;
-  Float_t per_n_t3_noprodr = 100* (Float_t) n_t3_noprodr / (Float_t) JETs_n_o_e_plus2 ;
-  Float_t per_n_t4_noprodr = 100* (Float_t) n_t4_noprodr / (Float_t) JETs_n_o_e_plus2 ;
-  Float_t per_n_t5_noprodr = 100* (Float_t) n_t5_noprodr / (Float_t) JETs_n_o_e_plus2 ;
-  Float_t per_n_t6_noprodr = 100* (Float_t) n_t6_noprodr / (Float_t) JETs_n_o_e_plus2 ;
+        Float_t per_n_t2_noprodr = 100* (Float_t) n_t2_noprodr / (Float_t) JETs_n_o_e_plus2 ;
+        Float_t per_n_t3_noprodr = 100* (Float_t) n_t3_noprodr / (Float_t) JETs_n_o_e_plus2 ;
+        Float_t per_n_t4_noprodr = 100* (Float_t) n_t4_noprodr / (Float_t) JETs_n_o_e_plus2 ;
+        Float_t per_n_t5_noprodr = 100* (Float_t) n_t5_noprodr / (Float_t) JETs_n_o_e_plus2 ;
+        Float_t per_n_t6_noprodr = 100* (Float_t) n_t6_noprodr / (Float_t) JETs_n_o_e_plus2 ;
 
 
 	// Output text and root files
@@ -388,13 +392,13 @@ void razor_trigger(){
 	"\n t2 : n_o_e_prodr200_2J30_XE40 : " << n_o_e_prodr200_2J30_XE40  <<
 	"\n t2 : n_noprodr_2J30_XE40 : " << n_t2_noprodr << ", %" << per_n_t2_noprodr <<
 	"\n t3 : n_o_e_prodr200_HT200 : " << n_o_e_prodr200_HT200 <<
-  "\n t3 : n_noprodr_HT200 : " << n_t3_noprodr << ", %" << per_n_t3_noprodr <<
+        "\n t3 : n_noprodr_HT200 : " << n_t3_noprodr << ", %" << per_n_t3_noprodr <<
 	"\n t4 : n_o_e_prodr200_XE70 : " << n_o_e_prodr200_XE70  <<
-  "\n t4 : n_noprodr_XE70 : " << n_t4_noprodr << ", %" << per_n_t4_noprodr <<
+        "\n t4 : n_noprodr_XE70 : " << n_t4_noprodr << ", %" << per_n_t4_noprodr <<
 	"\n t5 : n_o_e_prodr200_2J10_XE60 : " << n_o_e_prodr200_2J10_XE60 <<
-  "\n t5 : n_noprodr_2J10_XE60 : " << n_t5_noprodr << ", %" << per_n_t5_noprodr <<
+        "\n t5 : n_noprodr_2J10_XE60 : " << n_t5_noprodr << ", %" << per_n_t5_noprodr <<
 	"\n t6 : n_o_e_prodr200_2J15_XE55 : " << n_o_e_prodr200_2J15_XE55 <<
-  "\n t6 : n_noprodr_2J15_XE55 : " << n_t6_noprodr << ", %" << per_n_t6_noprodr <<
+        "\n t6 : n_noprodr_2J15_XE55 : " << n_t6_noprodr << ", %" << per_n_t6_noprodr <<
 	"\n" <<
 	"\n t7 : n_o_e_5jet85_4J20 : " << n_o_e_5jet85_4J20 <<
 	"\n t8 : n_o_e_j150_xe90_J75_XE40 : " << n_o_e_j150_xe90_J75_XE40 <<
@@ -410,18 +414,18 @@ void razor_trigger(){
 
 	// Razor Variables
 
-  TF1 *f1 = new TF1("f1","200/(x+85)-0.048",0,5000);
+        TF1 *f1 = new TF1("f1","200/(x+85)-0.048",0,5000);
 
-  TCanvas * c5= new TCanvas("c5", "Razor Variables",150,10,990,660);
-  c5->Clear();
-  setstyle();
+        TCanvas * c5= new TCanvas("c5", "Razor Variables",150,10,990,660);
+        c5->Clear();
+        setstyle();
 	raz_var_h->Scale(norm_param);
-  raz_var_h->SetStats(0);
-  raz_var_h->Draw("colz");
-  f1->SetLineColor(kBlack);
-  f1->Draw("same");
-  raz_var_h->GetXaxis()->SetTitle("#sqrt{#hat{s}_{R}}[GeV]");
-  raz_var_h->GetYaxis()->SetTitle("1/#gamma_{R+1}");
+        raz_var_h->SetStats(0);
+        raz_var_h->Draw("colz");
+        f1->SetLineColor(kBlack);
+        f1->Draw("same");
+        raz_var_h->GetXaxis()->SetTitle("#sqrt{#hat{s}_{R}}[GeV]");
+        raz_var_h->GetYaxis()->SetTitle("1/#gamma_{R+1}");
 	leg = new TLegend(0.72,0.8,0.9,0.9);
 	leg->SetTextSize(0.03);
 	leg->AddEntry(f1,"#bar{#Pi}=200 GeV","l");
@@ -453,7 +457,7 @@ void razor_trigger(){
 	setstyle();
 	gStyle->SetPaintTextFormat("5.0f");
 	overlap_h->SetStats(0);
-  for (int bin=0;bin<n_t;bin++){ overlap_h->GetXaxis()->SetBinLabel(bin+1,triggernames[bin]);}
+  	for (int bin=0;bin<n_t;bin++){ overlap_h->GetXaxis()->SetBinLabel(bin+1,triggernames[bin]);}
  	for (int bin=0;bin<n_t;bin++){ overlap_h->GetYaxis()->SetBinLabel(bin+1,triggernames[bin]);}
 	overlap_h->SetTitle("Trigger Overlap 8TeV, DM40, MM1000, W8pi, QCUT80");
 	overlap_h->GetZaxis()->SetRangeUser(0.,100.);
@@ -471,7 +475,7 @@ void razor_trigger(){
 	overlap_h->SetMarkerSize(1.0);
 	c8->SetTopMargin(0.3);
 	c8->SetLeftMargin(0.3);
-  c8->SetRightMargin(0.3);
+        c8->SetRightMargin(0.3);
 
 	overlap_h->Draw("coltextz");
 
