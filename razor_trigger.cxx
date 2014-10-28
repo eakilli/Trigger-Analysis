@@ -128,13 +128,13 @@ void razor_trigger(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2, TSt
 
 	//XE
 
-        TH1F * xe_pt_h = new TH1F("xe_pt_h" , "XE" , 100,0,500); //c8
+        TH1F * xe_pt_h = new TH1F("xe_pt_h" , "XE" , 100,0,700); //c8
 
 	// XE_pt
-	TH1F * XE_pt_h = new TH1F("XE_pt_h" , "XE_pt" , 100,0,500); //c6
+	TH1F * XE_pt_h = new TH1F("XE_pt_h" , "XE_pt" , 100,0,700); //c6
 
 	// JET_pt
-	TH1F * JET_pt_h = new TH1F("JET_pt", "JET_pt", 100, 0 , 500); //c7
+	TH1F * JET_pt_h = new TH1F("JET_pt", "JET_pt", 100, 0 , 700); //c7
 
 	TH2I *overlap_h = new TH2I("overlap_h", "Trigger Overlap", n_t,0,n_t, n_t,0,n_t); //c10
 
