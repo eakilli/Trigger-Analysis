@@ -576,7 +576,7 @@ void razor_trigger(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2, TSt
 	c4->Close();
 	c5->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_razor_variables.pdf");
 	c5->Close();
-	c6->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_XE_pt.pdf");
+	c6->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_XE_pt_1.pdf");
 	c6->Close();
 	c7->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_JET_pt.pdf");
 	c7->Close();
