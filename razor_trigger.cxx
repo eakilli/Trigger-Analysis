@@ -43,11 +43,11 @@ void razor_trigger(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2, TSt
 	static const int n_t=11;
 	static const int n_t_noprodr=6;
 
-	if(prodr == 200) { TString triggernames[n_t] = { "Prodr200_4J20" , "ProdR200_2J30_XE40", "ProdR200_HT200", "ProdR200_XE70", "ProdR200_2J10_XE60", "ProdR200_2J15_XE55","5j85_4J20",
+	if(prodr == 200) { TString triggernames[n_t] = { "ProdR200_4J20" , "ProdR200_2J30_XE40", "ProdR200_HT200", "ProdR200_XE70", "ProdR200_2J10_XE60", "ProdR200_2J15_XE55","5j85_4J20",
 					"j150_xe90_J75_XE40","xe100_XE70","ht1000_HT200","All jet + MET triggers"};
 	}
 
-	if(prodr == 170){ TString triggernames[n_t] = { "Prodr170_4J20" , "ProdR170_2J30_XE40", "ProdR170_HT200", "ProdR170_XE70", "ProdR170_2J10_XE60", "ProdR170_2J15_XE55","5j85_4J20",
+	if(prodr == 170){ TString triggernames[n_t] = { "ProdR170_4J20" , "ProdR170_2J30_XE40", "ProdR170_HT200", "ProdR170_XE70", "ProdR170_2J10_XE60", "ProdR170_2J15_XE55","5j85_4J20",
                                         "j150_xe90_J75_XE40","xe100_XE70","ht1000_HT200","All jet + MET triggers"};
 	}
 
