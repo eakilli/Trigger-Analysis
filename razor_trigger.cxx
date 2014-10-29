@@ -131,7 +131,7 @@ void razor_trigger(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2, TSt
         TH1F * xe_pt_h = new TH1F("xe_pt_h" , "XE" , 100,0,700); //c8
 
 	// XE_pt
-	TH1F * XE_pt_h = new TH1F("XE_pt_h" , "XE_pt" , 100,0,700); //c6
+        TH1F * XE_pt_1_h = new TH1F("XE_pt_1_h" , "XE_pt" , 100,0,700); //c6
 
 	// JET_pt
 	TH1F * JET_pt_h = new TH1F("JET_pt", "JET_pt", 100, 0 , 700); //c7
@@ -253,7 +253,7 @@ void razor_trigger(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2, TSt
 
 //                      n_razor++;
 			xe_pt_h->Fill(xe_pt/1000);
-                        XE_pt_h->Fill(XE_pt/1000);
+                        XE_pt_1_h->Fill(XE_pt/1000);
 
 			for(int l=0; l<JET_n; l++){
 				JET_pt_h->Fill(JET_pt[l]/1000); // Look at the pt distribution of L1 JET
@@ -499,14 +499,14 @@ void razor_trigger(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2, TSt
 	leg->Draw();
 
 
-       	TCanvas * c6= new TCanvas("c6", "XE_pt",150,10,990,660);
+       	TCanvas * c6= new TCanvas("c6", "XE_pt_1",150,10,990,660);
         c6->Clear();
 //	gStyle->SetOptStat(1101);
-	XE_pt_h->SetLineColor(kBlue);
-	XE_pt_h->SetStats(1);
-        XE_pt_h->Draw();
-        XE_pt_h->GetXaxis()->SetTitle("XE_pt");
-        XE_pt_h->GetYaxis()->SetTitle("N");
+	XE_pt_1_h->SetLineColor(kBlue);
+	XE_pt_1_h->SetStats(1);
+        XE_pt_1_h->Draw();
+        XE_pt_1_h->GetXaxis()->SetTitle("XE_pt");
+        XE_pt_1_h->GetYaxis()->SetTitle("N");
 
 	TCanvas *c7 = new TCanvas("c7","JET_pt",150,10,990,660);
 	c7->Clear();
@@ -562,7 +562,7 @@ void razor_trigger(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2, TSt
 
 	TFile* razor_variables_output= new TFile (output_directory+"/"+output_file_name+c_prodr+".root" ,"recreate");
 	xe_pt_h->Write();
-	XE_pt_h->Write();
+	XE_pt_1_h->Write();
 	JET_pt_h->Write();
 	raz_var_h->Write();
 	gaminvR_h->Write();
@@ -589,7 +589,7 @@ void razor_trigger(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2, TSt
 	razor_file->Close();
 
 	xe_pt_h->Delete();
-	XE_pt_h->Delete();
+	XE_pt_1_h->Delete();
 	JET_pt_h->Delete();
 	raz_var_h->Delete();
 	gaminvR_h->Delete();
