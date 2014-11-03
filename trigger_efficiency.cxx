@@ -324,8 +324,6 @@ void trigger_efficiency(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2
 	c4->Close();
 	c5->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_razor_variables.pdf");
 	c5->Close();
-	c6->SaveAs(output_directory+"/"+output_file_name+c_prodr+"efficiency.pdf");
-	c6->Close();
 
 	razor_variables_output->Close();
 	razor_file->Close();
