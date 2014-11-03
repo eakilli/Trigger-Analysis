@@ -4,6 +4,7 @@
 #include <TCanvas.h>
 #include <TLatex.h>
 #include <TTree.h>
+#include "trigger_classes.hh"
 #include "common_plotting_functions.hh"
 
 //#include <TString.h>
@@ -128,10 +129,10 @@ void razor_trigger(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2, TSt
 
 	//XE
 
-        TH1F * xe_pt_h = new TH1F("xe_pt_h" , "XE" , 100,0,700); //c8
+        TH1F * xe_pt_h = new TH1F("xe_pt_h" , "xe_pt" , 100,0,700); //c8
 
 	// XE_pt
-        TH1F * XE_pt_1_h = new TH1F("XE_pt_1_h" , "XE_pt" , 100,0,700); //c6
+	TH1F * XE_pt_1_h = new TH1F("XE_pt_1_h" , "XE_pt" , 100,0,700); //c6
 
 	// JET_pt
 	TH1F * JET_pt_h = new TH1F("JET_pt", "JET_pt", 100, 0 , 700); //c7
@@ -480,6 +481,9 @@ void razor_trigger(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2, TSt
 
     	TF1 *f1 = new TF1("f1","[0]/(x+[1])-[2]",0,3000);
 	f1->SetParameters(prodr,c_1,c_2);
+       	TF1 *f2 = new TF1("f2","[0]/(x+[1])-[2]",0,3000);
+        f2->SetParameters(170,200,0);
+
 	double norm_param = 1/(raz_var_h->Integral());
 
         TCanvas * c5= new TCanvas("c5", "Razor Variables",150,10,990,660);
@@ -489,13 +493,21 @@ void razor_trigger(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2, TSt
       	raz_var_h->SetStats(0);
         raz_var_h->Draw("colz");
 	c5->SetRightMargin(0.18);
+	f1->SetLineWidth(3);
 	f1->SetLineColor(kBlack);
         f1->Draw("same");
+
+	f2->SetLineWidth(3);
+	f2->SetLineColor(kRed);
+	f2->Draw("same");
+
+
         raz_var_h->GetXaxis()->SetTitle("#sqrt{#hat{s}_{R}}[GeV]");
         raz_var_h->GetYaxis()->SetTitle("1/#gamma_{R+1}");
 	leg = new TLegend(0.66,0.80,0.82,0.9);
 	leg->SetTextSize(0.03);
 	leg->AddEntry(f1,"#bar{#Pi}="+c_prodr+"GeV","l");
+	leg->AddEntry(f2,"#bar{#Pi}=170GeV", "l" );
 	leg->Draw();
 
 
