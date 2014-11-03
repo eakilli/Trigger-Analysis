@@ -317,7 +317,6 @@ void trigger_efficiency(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2
 	raz_var_h->Write();
 	gaminvR_h->Write();
 	shatR_h->Write();
-	gr1->Write();
 
 	c3->SaveAs(output_directory+"/"+output_file_name+c_prodr+"_shatR.pdf");
 	c3->Close();
