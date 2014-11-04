@@ -16,8 +16,9 @@
 //JET : L1
 
 
-void trigger_efficiency(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2, TString file_directory , TString input_file_name, TString output_directory , TString output_file_name){
+vector<Float_t> trigger_efficiency(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2, TString file_directory , TString input_file_name, TString output_directory , TString output_file_name){
 
+	vector<Float_t> efficiencies(0);
 	Float_t value = 0;
 
 	ofstream outputfile(output_directory+"/"+output_file_name+c_prodr+"efficiency_outputfile.txt");
@@ -114,6 +115,8 @@ void trigger_efficiency(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2
 	mytree->SetBranchAddress("XE70",&b_XE70);
 
 //	mytree->SetBRanchAddress("HT",&HT) ;
+
+	efficiencies.resize(0);
 
 	//Tree event loop
 	for (Long64_t i=0; i<number_of_events; i++) {
@@ -306,9 +309,9 @@ void trigger_efficiency(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2
 	leg->Draw();
 
 
-	Float_t efficiencies[3] = {eff_xe,eff_or_1,eff_or_2};
-	Float_t x[3] = {1,2,3};
-
+	efficiencies.push_back(eff_xe) ;
+	efficiencies.push_back(eff_or_1);
+	efficiencies.push_back(eff_or_2);
 
 	if(prodr == 200){ TString compared_trigger[3] = {"xe100_XE70","ProdR200_2J15_XE_55 or xe100_XE70","ProdR200_XE70 or xe100_XE70"};}
 	if(prodr == 170) {TString compared_trigger[3] = {"xe100_XE70","ProdR170_2J15_XE_55 or xe100_XE70","ProdR170_XE70 or xe100_XE70"}; }
@@ -332,5 +335,5 @@ void trigger_efficiency(TString c_prodr, Float_t prodr, Float_t c_1, Float_t c_2
 	gaminvR_h->Delete();
 	shatR_h->Delete();
 
-	return;
+	return efficiencies;
 }
